@@ -97,6 +97,7 @@
             <span class="author-block">
               <a>Tianyu Zheng</a><sup>1</sup>,
             </span>
+            <br>
             <span class="author-block">
               <a>Liuyu Xiang</a><sup>1</sup>,
             </span>
@@ -191,51 +192,65 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            In the realm of mimicking human deliberation, large language models (LLMs) show promising performance, 
+            thereby amplifying the importance of this research area. Deliberation is influenced by both logic and 
+            personality. However, previous studies predominantly focused on the logic of LLMs, neglecting the 
+            exploration of personality aspects. In this work, we introduce Dynamic Personality Generation (DPG),
+            a dynamic personality generation method based on Hypernetworks. Initially, we embed the Big Five personality 
+            theory into GPT-4 to form a personality assessment machine, enabling it to evaluate characters' personality 
+            traits from dialogues automatically. We propose a new metric to assess personality generation capability based 
+            on this evaluation method. Then, we use this personality assessment machine to evaluate dialogues in script data,
+            resulting in a personality-dialogue dataset. Finally, we fine-tune DPG on the personality-dialogue dataset. 
+            Experiments prove that DPG's personality generation capability is stronger after fine-tuning on this dataset 
+            than traditional fine-tuning methods, surpassing prompt-based GPT-4.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Introduction -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            In the field of large language model (LLM) research, making the deliberation of LLMs more human-like is a
+            topic worthy of investigation. Previous efforts have primarily focused on emulating human logical behavior,
+            leaving a significant gap in the imitation of personality. Recent studies have offered a solution to personality
+            shaping in LLMs through role-playing. However, this approach faces two main issues: (1) the personality of an LLM
+            becomes entirely dependent on the role being emulated, preventing the dynamic generation of personalities, and (2)
+            achieving effective role-play requires manually collecting a vast amount of information and dialogue data for each
+            character, which limits the richness of LLM personalities due to data dependency.
+            </p>
+            <p>
+            In psychological research, the Big Five personality theory serves as a paradigm for studying human personality.
+              Recent studies have incorporated this framework into LLM research, demonstrating that LLMs can possess a diverse
+              range of definable personalities. However, previous methods for shaping personality have relied heavily on complex
+              prompt design and the expansion of character knowledge bases through external sources. The performance of personality
+              shaping depends on the skill of the prompt designers, the richness of the external knowledge bases, and the methods
+              used to utilize this knowledge.
+
+            </p>
+             <p>
+            We combine role-playing with the Big Five personality traits to introduce Dynamic Personality Generation (DPG),
+               as illustrated in Figure 1. This method allows for the dynamic generation of personalities for LLMs. 
+               First, we conduct a Big Five personality assessment on the dialogue data used in role-playing, obtaining
+               personality trait scores for each dialogue participant. Using these dialogue data and personality trait 
+               scores, we rely on the LLM's strong cognitive abilities for personality creation to generate a wider array
+               of personality traits. Thanks to the excellent adapter capability of Lora and the powerful weight generation
+               ability of Hypernetworks, our approach to personality generation surpasses traditional methods in capability.
+            </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Introduction -->
+  </div>
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
