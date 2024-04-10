@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="description"
@@ -121,7 +122,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -130,7 +131,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -140,7 +141,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -150,7 +151,7 @@
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
@@ -211,16 +212,46 @@
   </div>
 </section>
 
+<style>
+  /* Adjusting the image size and centering it */
+  .interpolation-image_main {
+      display: block; /* Makes the image a block-level element */
+      margin: 0 auto; /* Automatically adjusts margins to center the image */
+      width: 90%; /* Adjust the width as necessary */
+      height: auto; /* Maintains the aspect ratio */
+  }
+  .interpolation-image_demo {
+      display: block; /* Makes the image a block-level element */
+      margin: 0 auto; /* Automatically adjusts margins to center the image */
+      width: 80%; /* Adjust the width as necessary */
+      height: auto; /* Maintains the aspect ratio */
+  }
+  .interpolation-image_hyper {
+      display: block; /* Makes the image a block-level element */
+      margin: 0 auto; /* Automatically adjusts margins to center the image */
+      width: 50%; /* Adjust the width as necessary */
+      height: auto; /* Maintains the aspect ratio */
+  }
+  /* Setting font size for a specific paragraph */
+  .figure_font_size {
+      font-size: 14px; /* Adjust the font size as necessary */
+  }
+</style>
+
 <section class="section">
   <div class="container is-max-desktop">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
     <!-- Introduction -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Introduction</h2>
+        <img src="./static/new_jpg/main.jpg" class="interpolation-image_main" alt="Interpolate start reference image"/>
+        <p class="figure_font_size">Figure 1: Illustration of the Dynamic Generation of Personalities (DPG).
+         <strong>Personality Assessment:</strong> The Big Five personality traits are quantified into 11
+         scores ranging from -5 to 5. GPT-4, equipped with expertise in personality assessment,
+         evaluates the character's Big Five personality traits through dialogue. <strong>Personality Generation:</strong>
+         Adapters are inserted into the pre-trained LLMs, and hypernetworks are trained using dialogue data with personality scores.
+         This allows for the generation of different adapter weights based on the prompt, enabling the LLMs to exhibit diverse personalities.
+        </p>
         <div class="content has-text-justified">
           <p>
             In the field of large language model (LLM) research, making the deliberation of LLMs more human-like is a
@@ -249,6 +280,7 @@
                of personality traits. Thanks to the excellent adapter capability of Lora and the powerful weight generation
                ability of Hypernetworks, our approach to personality generation surpasses traditional methods in capability.
             </p>
+            <br>
         </div>
       </div>
     </div>
@@ -258,121 +290,32 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
+    <!-- sample. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">The character's personality can be freely edited</h2>
+        <p>
+          <img src="./static/new_jpg/demo.jpg" class="interpolation-image_demo" alt="Interpolate start reference image"/>
+        </p>
+        <p>
+        Our approach allows for the dynamic editing of a character's personality using the Big Five personality traits as a prompt.
+        </p>
       </div>
     </div>
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
-    </div>
-    <!--/ Animation. -->
-
+    <!--/ sample. -->
   </div>
 </section>
+
 
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <pre><code>@article{,
+  author    = {},
+  title     = {},
+  journal   = {},
+  year      = {},
 }</code></pre>
   </div>
 </section>
